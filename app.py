@@ -3,7 +3,7 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
-from traceledger.data import FEATURES, make_demo_data, validate_transactions
+from traceledger.data import FEATURES, validate_transactions
 from traceledger.model import fit_demo_model, reason_signals, score_transactions
 
 st.set_page_config(page_title="TraceLedger", page_icon="◈", layout="wide")
@@ -67,8 +67,8 @@ left, right = st.columns([1.35, 1])
 with left:
     st.subheader("Recent payment activity")
     by_day = data.set_index("timestamp").sort_index().resample("D").agg(
-        Transactions=("transaction_id", "count"),
-        "High-score records"=("risk_score", lambda x: int((x >= threshold).sum())),
+        transactions=("transaction_id", "count"),
+        high_score_records=("risk_score", lambda x: int((x >= threshold).sum())),
     )
     st.line_chart(by_day, height=280)
 with right:
