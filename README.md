@@ -17,6 +17,16 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+## Screenshots
+
+### Monitoring overview
+
+![TraceLedger transaction monitoring overview and model evaluation](assets/traceledger-overview.png)
+
+### Alert investigation
+
+![TraceLedger alert queue and analyst review panel](assets/traceledger-review.png)
+
 ## Explore the demo
 
 The generated dataset contains ordinary payments and simulated rapid collection-and-dispersal patterns. The evaluation uses a chronological split so later transactions are held out from training. The app shows precision, recall, average precision, model scores, and global feature importance.
